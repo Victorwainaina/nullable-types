@@ -3,12 +3,12 @@ using System.Dynamic;
 
 namespace nullable_types
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            var P= new Marks();
-            double? mark = P.Cats() + P.Labs() + P.Exams();
+            var P = new Marks();
+            var mark = Marks.Cats() + Marks.Labs() + Marks.Exams();
             if (mark != null)
             {
                 Console.WriteLine(mark);
@@ -18,15 +18,15 @@ namespace nullable_types
                 Console.WriteLine("incomplete");
             }
 
+            // var x = mark.ToString() ?? "incomplete";
+            //Console.WriteLine(x);
             Console.ReadKey();
         }
-
-       
     }
 
-    class Marks
+    internal class Marks
     {
-        public double? Cats ()
+        public static double? Cats()
         {
             int? cat1 = 20;
             int? cat2 = 30;
@@ -35,16 +35,16 @@ namespace nullable_types
             return totalcats;
         }
 
-        public double? Labs ()
+        public static double? Labs()
         {
             int? lab1 = 10;
             int? lab2 = 5;
             int? lab3 = 5;
-            double? totallabs = (lab1 + lab2 + lab3)/3;
+            double? totallabs = (lab1 + lab2 + lab3) / 3;
             return totallabs;
         }
 
-        public double? Exams ()
+        public static double? Exams()
         {
             int? ex1 = 50;
             int? ex2 = 60;
@@ -53,7 +53,7 @@ namespace nullable_types
             int? ex5 = 50;
             int? ex6 = 60;
             int? ex7 = 70;
-            double? totalex = (ex1 + ex2 + ex3 + ex4 + ex5 + ex6 + ex7)/7;
+            double? totalex = (ex1 + ex2 + ex3 + ex4 + ex5 + ex6 + ex7) / 7;
             return totalex;
         }
     }
